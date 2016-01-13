@@ -21,7 +21,7 @@
 
 en:
   welcome: "Welcome to"
-  system_name: "Framgia Traing Management System"
+  system_name: "Framgia TMS"
   footer: "TMS 45- 2015"
   about: "About"
   contact: "Contact"
@@ -37,6 +37,7 @@ en:
   account: "Account"
   user: "User"
   new_user: "New user?"
+
   confirm: "Confirmation"
   update_profile: "Update your profile"
   submit_change: "Save changes"
@@ -54,6 +55,7 @@ en:
     cancel: "Cancel"
     edit: "Edit"
   permission_denied: "Permission denied"
+
   messages: 
     confirm: "Are you sure?"
   admin:
@@ -72,3 +74,25 @@ en:
       del_failed: "Failed, Try again"
       create_subject: "Created Successfully"
 
+  reset_password: "Reset password"
+  update_password: "Update password"
+  forgot_password: "Forgot password"
+  not_empty: "Can't be empty"
+  submit: "Submit"
+
+  email:
+    content:
+      click_link: "To reset your password click the link below:"
+      will_expired: "This link will expire in two hours."
+      footer: "If you did not request your password to be reset, 
+        please ignore this email and your password will stay as it is."
+  notice:
+    email:
+      sent_password: "Email sent with password reset instructions"
+      not_found: "Email address not found"
+      not_valid_user: "Invalid user from this link"
+      reset_expired: "Password reset has expired."
+      password_reset: "Password has been reset."
+  user_mailer:
+    password_reset:
+      subject: "Reset password"
