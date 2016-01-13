@@ -20,4 +20,12 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  welcome: "Welcome to"
+  system_name: "Framgia Traing Management System"
+  footer: "TMS 45- 2015"
+  about: "About"
+  contact: "Contact"
+  home: "Home"
+  help: "Help"
+  login: "Login"
+  sign_up: "Sign Up Now!"
