@@ -7,3 +7,14 @@ User.create!(name:  "Ngoc Vu",
   avatar: "false",
   reset_digest: true,
   reset_sent_at: Time.zone.now)
+
+20.times do |n|
+  name  = Faker::Name.name
+  email = "example-#{n+1}@railstutorial.org"
+  password = "password"
+  User.create!(name: name,
+    email: email,
+    password: password,
+    password_confirmation: password,
+    role: "trainee")
+end
