@@ -40,4 +40,8 @@ class User < ActiveRecord::Base
    def forget
     update_attributes remember_digest: nil
   end
+
+  def admin?
+    role == "admin"
+  end
 end

@@ -43,3 +43,14 @@ en:
   edit_user: "Edit user"
   profile_updated: "Profile updated"
   need_login: "Please log in."
+  flash:
+    success: "Successfully!"
+  errors: "Errors"
+  all_users: "All Users"
+  create_user: "Create New User"
+  submit: "Submit"
+  button:
+    save: "Save"
+  admin: "admin"
+  permission_denied: "Permission denied"
+
