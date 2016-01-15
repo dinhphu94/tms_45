@@ -14,7 +14,7 @@ class Admin::UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
-      flash[:success] = t "flash.success"
+      flash[:success] = t "flash.success.create_user"
       redirect_to admin_users_path
     else
       render :new
@@ -22,6 +22,21 @@ class Admin::UsersController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    if @user.update_attributes user_params
+      flash[:success] = t "flash.success.update_user"
+      redirect_to root_url
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @user.destroy
+    flash[:success] = t "flash.success.destroy_user"
+    redirect_to admin_users_path
   end
 
   private

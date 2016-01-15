@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   attr_accessor :remember_token, :reset_token
+
+  enum role: [:admin, :trainee]
+
   has_many :user_subjects
   has_many :activities
   has_many :user_courses
@@ -42,10 +45,6 @@ class User < ActiveRecord::Base
 
    def forget
     update_attributes remember_digest: nil
-  end
-
-  def admin?
-    role == "admin"
   end
 
   def create_reset_digest
