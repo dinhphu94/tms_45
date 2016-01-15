@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   post "login" => "sessions#create"
   delete "logout" => "sessions#destroy"
 
+  resources :users
   namespace :admin do
     root "static_pages#home"
     resources :users
+    resources :subjects
   end
-
-  resources :users
 end
