@@ -22,7 +22,6 @@ gem "mini_magick"
 gem "fog"
 
 gem "config"
-
 group :production do
   gem "pg"
   gem "puma"
