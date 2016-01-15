@@ -1,7 +1,8 @@
 class Admin::SubjectsController < ApplicationController
   before_action :load_subject, except: [:index, :new, :create]
 
-  def new
+  def show
+    @tasks = @subject.tasks
   end
 
   def new
@@ -12,11 +13,32 @@ class Admin::SubjectsController < ApplicationController
   def create
     @subject = Subject.new subject_params
     if @subject.save
-      flash[:success] = t "admin.subjects.success"
+      flash[:success] = t "admin.flash.create_subject"
       redirect_to root_url
     else
       render :new
     end
+  end
+
+  def edit
+  end
+
+  def update
+    if @subject.update_attributes subject_params
+      flash[:success] = t "admin.flash.update_subject"
+      redirect_to root_url
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    if @subject.destroy
+      flash[:success] = t "admin.flash.del_subject"
+    else
+      flash[:error] = t "admin.flash.del_failed"
+    end
+    redirect_to root_url
   end
 
   private
