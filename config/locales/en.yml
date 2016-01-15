@@ -51,7 +51,11 @@ en:
   submit: "Submit"
   button:
     save: "Save"
+    cancel: "Cancel"
+    edit: "Edit"
   permission_denied: "Permission denied"
+  messages: 
+    confirm: "Are you sure?"
   admin:
     subjects:
       name_task: "Name Task"
@@ -59,6 +63,12 @@ en:
       new_task: "New Task"
       submit: "Submit"
       reset: "Reset"
-      success: "Created Successfully"
       new: "Create new Subject"
+      edit: "Edit Subject"
+      subject: "Subject"
+    flash:
+      update_subject: "Updated Successfully"
+      del_subject: "Deleted Subject"
+      del_failed: "Failed, Try again"
+      create_subject: "Created Successfully"
 
