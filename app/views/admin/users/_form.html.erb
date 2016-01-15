@@ -15,6 +15,9 @@
       <%= f.label :password_confirmation, t(:confirm) %>
       <%= f.password_field :password_confirmation, class: "form-control" %>
 
+      <%= f.label :role %><br>
+      <%= f.select(:role, Settings.role) %>
+
       <%= f.submit t :submit, class: "btn btn-primary" %>
   </div>
 </div>

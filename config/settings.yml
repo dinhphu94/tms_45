@@ -1,3 +1,6 @@
 time_zone: "Hanoi"
 email:
   time_expired: 2
+role:
+  admin: "admin"
+  trainee: "trainee"
