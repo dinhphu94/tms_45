@@ -51,6 +51,14 @@ en:
   submit: "Submit"
   button:
     save: "Save"
-  admin: "admin"
   permission_denied: "Permission denied"
+  admin:
+    subjects:
+      name_task: "Name Task"
+      remove_task: "Remove Task"
+      new_task: "New Task"
+      submit: "Submit"
+      reset: "Reset"
+      success: "Created Successfully"
+      new: "Create new Subject"
 
