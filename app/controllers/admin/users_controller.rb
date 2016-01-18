@@ -2,6 +2,7 @@ class Admin::UsersController < ApplicationController
   before_action :load_user, except: [:index, :create, :new]
   before_action :verify_admin
   def index
+    @users = User.paginate page: params[:page]
   end
 
   def show
