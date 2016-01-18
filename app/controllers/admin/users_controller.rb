@@ -1,6 +1,6 @@
-class Admin::UsersController < ApplicationController
+class Admin::UsersController < Admin::CoursesController
   before_action :load_user, except: [:index, :create, :new]
-  before_action :verify_admin
+
   def index
     @users = User.paginate page: params[:page]
   end

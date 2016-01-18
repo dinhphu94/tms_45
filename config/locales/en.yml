@@ -41,6 +41,10 @@ en:
   messages:
     confirm: "Are you sure?"
   admin:
+    submit: "Submit"
+    reset: "Reset"
+    error_messages:
+      deadline: "must be possible"
     users:
       list_of_user: "List of user"
       table:
@@ -51,16 +55,26 @@ en:
           role: "Role"
           created_at: "Created at"
           avatar: "Avatar"
+    courses:
+      new_subject: "New subject"
+      remove_subject: "Remove subject"
+      title: "Add new course"
+      header: "Add a new course"
+      form:
+        subjects: "Subjects"
+        status: "Status:"
+        start_date: "Start date:"
+        end_date: "End date"
+        select_status: "Select status"
     subjects:
       name_task: "Name Task"
       remove_task: "Remove Task"
       new_task: "New Task"
-      submit: "Submit"
-      reset: "Reset"
       new: "Create new Subject"
       edit: "Edit Subject"
       subject: "Subject"
     flash:
+      create_course: "Created course successfully"
       update_subject: "Updated Successfully"
       del_subject: "Deleted Subject"
       del_failed: "Failed, Try again"

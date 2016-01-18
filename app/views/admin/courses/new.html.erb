@@ -1,0 +1,11 @@
+<%= provide :title, t("admin.courses.title") %>
+<h1><%= t "admin.courses.header" %></h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for [:admin, @course] do |f| %>
+      <%= render "shared/error_messages", object: @course %>
+      <%= render "course_form", f: f %>
+    <% end %>
+  </div>
+</div>

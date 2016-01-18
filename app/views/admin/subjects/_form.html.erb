@@ -9,16 +9,16 @@
 </div>
 
 <%= f.fields_for :tasks do |builder| %>
-  <%= render "task_fields", f: builder %>
+  <%= render "admin/shared/task_fields", f: builder %>
 <% end %>
 <p><%= link_to_add_fields t("admin.subjects.new_task"), f, :tasks %></p>
 
 <ul class="list-inline">
   <li>
-    <%= f.submit t("admin.subjects.submit"), class: "btn btn-success" %>
+    <%= f.submit t("admin.submit"), class: "btn btn-success" %>
   </li>
   <li>
-    <%= button_tag t("admin.subjects.reset"), type: :reset,
+    <%= button_tag t("admin.reset"), type: :reset,
       class: "btn btn-default" %>
   </li>
 </ul>

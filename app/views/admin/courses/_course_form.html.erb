@@ -1,0 +1,42 @@
+<div class="form-group">
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control", required: true %>
+</div>
+<div class="form-group">
+  <%= f.label :description %>
+  <%= f.text_area :description, class: "form-control", required: true %>
+</div>
+<div class="form-group">
+  <%= t "admin.courses.form.status" %>
+  <%= f.select :status,
+    Settings.course.status.to_a.map {|key, value| [value, key]},
+    {prompt: t("admin.courses.form.select_status")}, required: true %>
+</div>
+<div class="form-group">
+  <%= t "admin.courses.form.start_date" %>
+  <%= f.date_field :start_date %>
+</div>
+<div class="form-group">
+  <%= t "admin.courses.form.end_date" %>
+  <%= f.date_field :end_date %>
+</div>
+<%= f.label t("admin.courses.form.subjects") %>
+<ul>
+  <%= f.fields_for :subject_courses do |builder| %>
+    <div class="form-group">
+      <%= builder.check_box :subject_id, {checked: builder.object.persisted?},
+        builder.object.subject.id, "" %>
+      <%= builder.label :subject_id, builder.object.subject.name %>
+    </div>
+  <% end %>
+</ul>
+<p><%= link_to_add_fields t("admin.courses.new_subject"), f, :subjects %></p>
+<ul class="list-inline">
+  <li>
+    <%= f.submit t("admin.submit"), class: "btn btn-success" %>
+  </li>
+  <li>
+    <%= button_tag t("admin.reset"), type: :reset,
+      class: "btn btn-default" %>
+  </li>
+</ul>

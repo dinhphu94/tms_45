@@ -23,3 +23,15 @@ User.create!(name: "Bach Van Ngoc",
     password_confirmation: password,
     role: 1)
 end
+
+12.times do |n|
+  name = "Subject #{n}"
+  description = Faker::Lorem.paragraphs
+  tasks = {}
+  4.times do |m|
+    tasks["#{m}"] = {name: "Task #{m}"}
+  end
+  Subject.create! name: name,
+    description: description,
+    tasks_attributes: tasks
+end
