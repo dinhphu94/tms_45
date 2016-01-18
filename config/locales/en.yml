@@ -28,7 +28,7 @@ en:
       create_user: "Create user successfully!"
       update_user: "Update user profile successfully!"
       destroy_user: "Delete user successfully"
-  errors: "Errors"
+
   all_users: "All Users"
   create_user: "Create New User"
   submit: "Submit"
@@ -41,6 +41,16 @@ en:
   messages:
     confirm: "Are you sure?"
   admin:
+    users:
+      list_of_user: "List of user"
+      table:
+        thead:
+          id: "ID"
+          name: "Name"
+          email: "Email"
+          role: "Role"
+          created_at: "Created at"
+          avatar: "Avatar"
     subjects:
       name_task: "Name Task"
       remove_task: "Remove Task"
