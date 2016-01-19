@@ -40,6 +40,14 @@ en:
 
   messages:
     confirm: "Are you sure?"
+  client:
+    courses:
+      course_info: "COURSE INFORMATIONS"
+      subject_info: "SUBJECT INFORMATIONS"
+      trainee_info: "TRAINNEE INFORMATIONS"
+      manager: "MANAGER INFORMATIONS"
+      activity: "ACTIVITY"
+      description: "COURSE DESCRIPTION"
   admin:
     submit: "Submit"
     reset: "Reset"
@@ -67,6 +75,11 @@ en:
         end_date: "End date"
         select_status: "Select status"
       add_user: "Add user!"
+      status:
+        active: "Activated"
+        not_active: "Not activated"
+        progress: "In progress"
+        finish: "Finish"
     subjects:
       name_task: "Name Task"
       remove_task: "Remove Task"
