@@ -1,4 +1,4 @@
-class Admin::SubjectsController < ApplicationController
+class Admin::SubjectsController < Admin::AdminController
   before_action :load_subject, except: [:index, :new, :create]
 
   def show

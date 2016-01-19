@@ -9,11 +9,4 @@ class ApplicationController < ActionController::Base
       redirect_to login_url
     end
   end
-
-  def verify_admin
-    unless logged_in? || current_user.admin?
-      flash[:alert] = t "permission_denied"
-      redirect_to root_url
-    end
-  end
 end
