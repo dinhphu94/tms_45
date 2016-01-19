@@ -66,6 +66,7 @@ en:
         start_date: "Start date:"
         end_date: "End date"
         select_status: "Select status"
+      add_user: "Add user!"
     subjects:
       name_task: "Name Task"
       remove_task: "Remove Task"

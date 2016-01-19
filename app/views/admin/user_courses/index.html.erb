@@ -1,0 +1,6 @@
+<%= provide :title, t("admin.courses.add_user") %>
+<h1><%= t "admin.courses.add_user" %></h1>
+<%= form_for @course, url: admin_course_path(@course) do |f| %>
+  <%= render "user_courses_form", f: f %>
+<% end %>
+<%= will_paginate @users %>
