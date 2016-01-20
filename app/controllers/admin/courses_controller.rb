@@ -1,6 +1,10 @@
 class Admin::CoursesController < Admin::AdminController
   before_action :load_course, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @courses = Course.paginate page: params[:page]
+  end
+
   def new
     @course = Course.new
     @course.build_subject_courses

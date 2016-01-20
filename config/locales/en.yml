@@ -86,6 +86,8 @@ en:
         finish: "Finished"
       delete_success: "You have deleted successfully"
       delete_failure: "You can't delete this course"
+      all_courses: "All Courses"
+      view_course: "View Course"
     subjects:
       name_task: "Name Task"
       remove_task: "Remove Task"

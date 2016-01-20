@@ -1,0 +1,20 @@
+<%= provide :title, t("admin.courses.all_courses") %>
+<h1><%= t "admin.courses.all_courses" %></h1>
+<% @courses.each do |course| %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-2">
+    <div class="course_list_border">
+      <h3><%= link_to course.name, course %></h3>
+      <p><%= course.description.truncate(
+        Settings.course.number_of_description) %></p>
+      <span class="glyphicon glyphicon-user"> <%= course.trainees.count %>
+        <%= t :trainees %>
+        <%= render "shared/status_label", label: course.status %>
+      </span>
+    </div>
+  </div>
+  <div class="col-md-offset-1">
+    <%= link_to t("courses.view_course"), course, class: "btn btn-primary" %>
+  </div>
+</div>
+<% end %>
