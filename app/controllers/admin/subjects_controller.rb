@@ -1,6 +1,10 @@
 class Admin::SubjectsController < Admin::AdminController
   before_action :load_subject, except: [:index, :new, :create]
 
+  def index
+    @subjects = Subject.paginate page: params[:page]
+  end
+
   def show
     @tasks = @subject.tasks
   end

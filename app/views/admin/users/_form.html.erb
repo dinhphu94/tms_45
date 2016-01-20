@@ -2,22 +2,26 @@
   <div class="col-md-6 col-md-offset-3">
     <%= f.hidden_field :role %>
       <%= render "shared/error_messages", object: @user %>
-
-      <%= f.label :name %>
-      <%= f.text_field :name, class: "form-control" %>
-
-      <%= f.label :email %>
-      <%= f.email_field :email, class: "form-control" %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password, class: "form-control" %>
-
-      <%= f.label :password_confirmation, t(:confirm) %>
-      <%= f.password_field :password_confirmation, class: "form-control" %>
-
-      <%= f.label :role %><br>
-      <%= f.select(:role, Settings.role) %>
-
-      <%= f.submit t :submit, class: "btn btn-primary" %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation, t(:confirm) %>
+        <%= f.password_field :password_confirmation, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :role %>
+        <%= f.select(:role, Settings.role) %>
+      </div>
+      <%= f.submit t(:submit), class: "btn btn-primary" %>
   </div>
 </div>
