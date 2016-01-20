@@ -82,6 +82,8 @@ en:
         not_active: "Not activated"
         progress: "In progress"
         finish: "Finished"
+      delete_success: "You have deleted successfully"
+      delete_failure: "You can't delete this course"
     subjects:
       name_task: "Name Task"
       remove_task: "Remove Task"
@@ -98,6 +100,7 @@ en:
           description: "Description"
     flash:
       create_course: "Created course successfully"
+      edit_course: "Edit course successfully"
       update_subject: "Updated Successfully"
       del_subject: "Deleted Subject"
       del_failed: "Failed, Try again"
