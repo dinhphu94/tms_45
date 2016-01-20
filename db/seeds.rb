@@ -35,3 +35,24 @@ end
     description: description,
     tasks_attributes: tasks
 end
+
+course = Course.create! name: "JavaScript Road Trip Part 1",
+  description: "An introduction to the very basics of the JavaScript
+    language. Build a foundation of JavaScript syntax and learn how to use values, variables, and files.",
+  status: "active",
+  subjects_attributes: {
+    "0": {name: "The Cliffs of Value",
+      description: "Learn to manipulate values on the console."},
+    "1": {name: "Variable Valley",
+      description: "Review how to store and use data with variables."},
+    "2": {name: "Files Falls",
+      description: "Create JS files and source them within HTML code."}
+  }
+5.times do |n|
+  UserCourse.create! user_id: n + 5,
+    course_id: course.id,
+    supervisor: 0
+end
+UserCourse.create! user_id: 2,
+  course_id: course.id,
+  supervisor: 1

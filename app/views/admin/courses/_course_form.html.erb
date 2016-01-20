@@ -9,7 +9,7 @@
 <div class="form-group">
   <%= t "admin.courses.form.status" %>
   <%= f.select :status,
-    Settings.course.status.to_a.map {|key, value| [value, key]},
+    t("admin.courses.status").to_a.map {|key, value| [value, key]},
     {prompt: t("admin.courses.form.select_status")}, required: true %>
 </div>
 <div class="form-group">

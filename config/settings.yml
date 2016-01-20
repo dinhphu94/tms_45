@@ -4,9 +4,5 @@ email:
 role:
   admin: "admin"
   trainee: "trainee"
-course:
-  status:
-    active: "Activated"
-    not_active: "Not activated"
-    progress: "In progress"
-    finish: "Finish"
+avatar:
+  size: 50

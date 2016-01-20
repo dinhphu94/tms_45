@@ -23,6 +23,14 @@ class Course < ActiveRecord::Base
     end
   end
 
+  def trainees
+    User.list_by_role id, false
+  end
+
+  def supervisors
+    User.list_by_role id, true
+  end
+
   private
   def valid_deadline
     return if [end_date.blank?, start_date.blank?].any?
