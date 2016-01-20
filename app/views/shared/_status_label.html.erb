@@ -1,0 +1,11 @@
+<% case label %>
+<% when "active" %>
+  <span class="label label-success">
+<% when "not_active" %>
+  <span class="label label-warning">
+<% when "in_progress" %>
+  <span class="label label-info">
+<% else %>
+  <span class="label label-default">
+<% end %>
+<%= t "admin.courses.status.#{label}" %></span>

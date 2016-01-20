@@ -64,6 +64,8 @@ en:
           created_at: "Created at"
           avatar: "Avatar"
     courses:
+      edit: "Edit course"
+      delete: "Delete course"
       new_subject: "New subject"
       remove_subject: "Remove subject"
       title: "Add new course"
@@ -79,7 +81,7 @@ en:
         active: "Activated"
         not_active: "Not activated"
         progress: "In progress"
-        finish: "Finish"
+        finish: "Finished"
     subjects:
       name_task: "Name Task"
       remove_task: "Remove Task"
