@@ -74,6 +74,13 @@ en:
       new: "Create new Subject"
       edit: "Edit Subject"
       subject: "Subject"
+      list_of_subject: "List of Subject"
+      created_at: "Created at"
+      table:
+        thead:
+          id: "ID"
+          name: "Name"
+          description: "Description"
     flash:
       create_course: "Created course successfully"
       update_subject: "Updated Successfully"
