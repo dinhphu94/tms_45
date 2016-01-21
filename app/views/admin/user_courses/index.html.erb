@@ -1,6 +1,24 @@
 <%= provide :title, t("admin.courses.add_user") %>
-<h1><%= t "admin.courses.add_user" %></h1>
-<%= form_for @course, url: admin_course_path(@course) do |f| %>
-  <%= render "user_courses_form", f: f %>
-<% end %>
-<%= will_paginate @users %>
+<h1><%= t "admin.courses.add_trainees_supervisors" %></h1>
+<div>
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#trainee" aria-controls="trainee"
+      role="tab" data-toggle="tab"><%= t "admin.courses.add_trainee" %></a></li>
+    <li role="presentation"><a href="#manager" aria-controls="manager"
+      role="tab" data-toggle="tab"><%= t "admin.courses.add_supervisor" %></a></li>
+  </ul>
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade active in" id="trainee">
+      <%= form_for @course, url: admin_course_path(@course) do |f| %>
+        <%= render "user_courses_form", f: f, course_users: @course.trainees,
+          users: User.trainee.excluded(@course.supervisors), supervisor: false %>
+      <% end %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="manager">
+      <%= form_for @course, url: admin_course_path(@course) do |f| %>
+        <%= render "user_courses_form", f: f, course_users: @course.supervisors,
+          users: User.excluded(@course.trainees), supervisor: true %>
+      <% end %>
+    </div>
+  </div>
+</div>

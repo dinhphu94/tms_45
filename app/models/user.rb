@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: {minimum: 6, maximum: 30},
     allow_nil: true
 
+  scope :excluded, ->(users) {where.not id: users}
+
   class << self
     def digest string
       cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

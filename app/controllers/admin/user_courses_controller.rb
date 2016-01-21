@@ -3,12 +3,6 @@ class Admin::UserCoursesController < Admin::AdminController
   before_action :load_course, only: :index
 
   def index
-    @users = User.trainee.paginate page: params[:page]
-    @users.each do |user|
-      unless @course.user_courses.find_by user_id: user.id
-        @course.user_courses.build user_id: user.id
-      end
-    end
   end
 
   def show

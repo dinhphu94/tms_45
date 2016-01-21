@@ -48,7 +48,8 @@ class Admin::CoursesController < Admin::AdminController
       :end_date, subject_courses_attributes: [:id, :subject_id, :course_id,
       :_destroy], subjects_attributes: [:id, :name, :description,
       tasks_attributes: [:id, :name]],
-      user_courses_attributes: [:id, :course_id, :user_id, :status, :_destroy]
+      user_courses_attributes: [:id, :course_id, :user_id, :status,
+      :supervisor, :_destroy]
   end
 
   def load_course

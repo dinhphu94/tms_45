@@ -51,8 +51,10 @@ course = Course.create! name: "JavaScript Road Trip Part 1",
 5.times do |n|
   UserCourse.create! user_id: n + 5,
     course_id: course.id,
-    supervisor: 0
+    supervisor: 0,
+    active: 1
 end
 UserCourse.create! user_id: 2,
   course_id: course.id,
-  supervisor: 1
+  supervisor: 1,
+  active: 1
