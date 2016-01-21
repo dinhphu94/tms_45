@@ -3,6 +3,12 @@ class Admin::UsersController < Admin::CoursesController
 
   def index
     @users = User.paginate page: params[:page]
+    @all_users = User.all
+    respond_to do |format|
+      format.html
+      format.csv {send_data @users.to_csv}
+      format.xls
+     end
   end
 
   def show

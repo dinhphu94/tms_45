@@ -37,6 +37,15 @@ class User < ActiveRecord::Base
       where "id IN (#{user_courses})", course_id: course_id,
         supervisor: supervisor
     end
+
+    def to_csv options = {}
+      CSV.generate options do |csv|
+        csv << column_names
+        all.each do |user|
+          csv << user.attributes.values_at(*column_names)
+        end
+      end
+    end
   end
 
   def remember
