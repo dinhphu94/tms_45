@@ -1,6 +1,21 @@
-<div class="row">
+<div class="row header-course">
   <h1 class="label-name"><%= @course.name %></h1>
-  <p><%= t "admin.courses.status.#{@course.status}" %></p>
+  <div class="row">
+    <div class="col-md-8">
+      <%= render "shared/status_label", label: @course.status %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8">
+    <div class="edit-operation">
+      <%= link_to t("admin.courses.edit"), edit_admin_course_path(@course),
+        class: "btn btn-primary" %>
+      <%= link_to t("admin.courses.delete"), admin_course_path(@course),
+        method: :delete, data: {confirm: t("messages.confirm")},
+        class: "btn btn-danger" %>
+    </div>
+  </div>
 </div>
 <div class="row">
   <div class="col-md-8">
@@ -53,7 +68,7 @@
     </div>
   </div>
   <div class="col-md-4">
-    <div class="row">
+    <div class="row activity">
       <h2 class="label-name">
         <%= t "client.courses.activity" %>
       </h2>

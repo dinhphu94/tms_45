@@ -1,1 +1,79 @@
-<h1><%= @course.name %></h1>
+<div class="row header-course">
+  <h1 class="label-name"><%= @course.name %></h1>
+  <div class="row">
+    <div class="col-md-8">
+      <%= render "shared/status_label", label: @course.status %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8">
+    <div class="edit-operation">
+      <%= link_to t("admin.courses.edit"), edit_admin_course_path(@course),
+        class: "btn btn-primary" %>
+      <%= link_to t("admin.courses.delete"), admin_course_path(@course),
+        method: :delete, data: {confirm: t("messages.confirm")},
+        class: "btn btn-danger" %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8">
+    <div class="row">
+      <h2 class="label-name">
+        <%= t "client.courses.description" %>
+      </h2>
+      <p><%= @course.description %></p>
+    </div>
+    <div class="row">
+      <h2 class="label-name">
+        <%= t "client.courses.subject_info" %>
+      </h2>
+      <ul>
+        <% @course.subjects.each do |subject| %>
+          <h3><%= link_to subject.name, [:admin, subject] %></h3>
+          <p><%= subject.description %></p>
+        <% end %>
+      </ul>
+    </div>
+    <div class="row">
+      <h2 class="label-name">
+        <%= t "client.courses.trainee_info" %>
+        <span class="badge"><%= @course.trainees.count %></span>
+      </h2>
+      <ul class="list-trainees">
+        <% @course.trainees.each do |trainee| %>
+          <li class="user_info">
+            <%= gravatar_for trainee %>
+            <div class="name-email">
+              <%= link_to trainee.name, trainee %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="row">
+      <h2 class="label-name">
+        <%= t "client.courses.manager" %>
+        <span class="badge"><%= @course.supervisors.count %></span>
+      </h2>
+      <ul class="list-managers">
+        <% @course.supervisors.each do |supervisor| %>
+          <li class="user_info">
+            <%= gravatar_for supervisor %>
+            <div class="name-email">
+              <%= link_to supervisor.name, supervisor %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="row activity">
+      <h2 class="label-name">
+        <%= t "client.courses.activity" %>
+      </h2>
+    </div>
+  </div>
+</div>
