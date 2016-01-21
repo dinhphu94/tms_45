@@ -16,10 +16,11 @@ class Course < ActiveRecord::Base
   accepts_nested_attributes_for :user_courses, allow_destroy: true, reject_if:
     proc {|a| a[:user_id].blank? || a[:user_id] == 0}
 
-
-  def build_subject_courses
+  def build_subject_courses list_subjects = {}
     Subject.all.each do |subject|
-      self.subject_courses.build subject_id: subject.id
+      unless list_subjects.include? subject
+        self.subject_courses.build subject_id: subject.id
+      end
     end
   end
 
@@ -29,6 +30,10 @@ class Course < ActiveRecord::Base
 
   def supervisors
     User.list_by_role id, true
+  end
+
+  def have_subject_course? subject_course_id
+    subject_courses.where(id: subject_course_id).present?
   end
 
   private
