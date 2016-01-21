@@ -54,6 +54,8 @@ en:
     error_messages:
       deadline: "must be possible"
     users:
+      excel: "Excel"
+      download: "Download"
       list_of_user: "List of user"
       table:
         thead:
