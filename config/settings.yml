@@ -9,3 +9,5 @@ avatar:
 course_form:
   description:
     rows: 3
+course:
+  number_of_description: 200
