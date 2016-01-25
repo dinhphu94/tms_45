@@ -26,11 +26,16 @@ class Admin::CoursesController < Admin::AdminController
   end
 
   def update
-    if @course.update_attributes course_params
-      flash[:notice] = t "admin.flash.edit_course"
-      redirect_to admin_course_path @course
+    if params[:type]
+      @course.update_attributes status: params[:type]
+      redirect_to :back
     else
-      render :edit
+      if @course.update_attributes course_params
+        flash[:notice] = t "admin.flash.edit_course"
+        redirect_to admin_course_path @course
+      else
+        render :edit
+      end
     end
   end
 

@@ -9,8 +9,20 @@
         Settings.course.number_of_description) %></p>
       <span class="glyphicon glyphicon-user"> <%= course.trainees.count %>
         <%= t :trainees %>
-        <%= render "shared/status_label", label: course.status %>
       </span>
+      <% case course.status %>
+      <% when 0 %>
+        <%= link_to t("admin.courses.start_course"), admin_course_path(course, 
+          type: Settings.course.status_start), data: {confirm: t("messages.confirm")},
+          method: :patch, class: "btn btn-sm btn-default" %>
+      <% when 1 %>
+        <%= link_to t("admin.courses.finish_course"), admin_course_path(course, 
+          type: Settings.course.status_finish), data: {confirm: t("messages.confirm")},
+          method: :patch, class: "btn btn-sm btn-danger" %>
+      <% when 2 %>
+        <%= link_to t("admin.courses.unactive_course"), root_url,
+          class: "btn btn-sm btn-danger disabled" %>
+      <% end %>
     </div>
   </div>
   <div class="col-md-offset-1">
