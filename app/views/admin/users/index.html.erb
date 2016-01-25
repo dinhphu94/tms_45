@@ -7,6 +7,8 @@
       <th><%= t "admin.users.table.thead.email" %></th>
       <th><%= t "admin.users.table.thead.role" %></th>
       <th><%= t "admin.users.table.thead.created_at" %></th>
+      <th><%= t "amin.users.table.thead.edit" %>
+      <th><%= t "amin.users.table.thead.delete" %>
     </tr>
   </thead>
   <tbody>
@@ -17,6 +19,11 @@
         <td><%= user.email %></td>
         <td><%= user.role.capitalize %></td>
         <td><%= user.created_at %></td>
+        <td><%= link_to t("amin.users.table.thead.edit"), edit_admin_user_path(user) %></td>
+        <td>
+          <%= link_to t("admin.users.table.thead.delete"), admin_user_path(user),
+            method: :delete, data: {confirm: t("messages.confirm")} %>
+        </td>
       </tr>
     <% end %>
   </tbody>
