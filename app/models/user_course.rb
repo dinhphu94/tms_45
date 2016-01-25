@@ -1,8 +1,9 @@
 class UserCourse < ActiveRecord::Base
   belongs_to :user
   belongs_to :course
-  has_many :user_subjects
+  has_many :user_subjects, dependent: :destroy
 
+  after_create :create_user_subjects
   before_create :set_unique_active
 
   scope :has_active_user, ->(user) {where "user_id = ? AND active = ?", user.id, true}
@@ -23,5 +24,13 @@ class UserCourse < ActiveRecord::Base
       user_course.active = false if user_course.active
     end
     self.active = true
+  end
+
+  def create_user_subjects
+    if course.subjects.present?
+      course.subjects.each do |subject|
+        user_subjects.create user: user, subject: subject, status: 0
+      end
+    end
   end
 end
