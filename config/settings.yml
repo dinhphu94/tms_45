@@ -6,6 +6,7 @@ role:
   trainee: "trainee"
 avatar:
   size: 50
+  size_in_show: 150
 course_form:
   description:
     rows: 3
