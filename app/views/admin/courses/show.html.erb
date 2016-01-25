@@ -11,6 +11,8 @@
     <div class="edit-operation">
       <%= link_to t("admin.courses.edit"), edit_admin_course_path(@course),
         class: "btn btn-primary" %>
+      <%= link_to t("admin.courses.add_to_course"), admin_course_user_courses_path(@course),
+        class: "btn btn-success" %>
       <%= link_to t("admin.courses.delete"), admin_course_path(@course),
         method: :delete, data: {confirm: t("messages.confirm")},
         class: "btn btn-danger" %>
