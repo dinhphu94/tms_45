@@ -135,3 +135,9 @@ en:
   user_mailer:
     password_reset:
       subject: "Reset password"
+
+  courses:
+    all_courses: "All courses"
+    view_course: "View Course"
+    flash:
+      not_user_of_course: "You cannot view detail of this course"
