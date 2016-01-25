@@ -11,3 +11,5 @@ course_form:
     rows: 3
 course:
   number_of_description: 200
+  status_start: 1
+  status_finish: 2 
