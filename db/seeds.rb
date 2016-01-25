@@ -40,18 +40,24 @@ course = Course.create! name: "JavaScript Road Trip Part 1",
   description: "An introduction to the very basics of the JavaScript
     language. Build a foundation of JavaScript syntax and learn how to use values, variables, and files.",
   status: 0,
+  start_date: Time.now,
   subjects_attributes: {
     "0": {name: "The Cliffs of Value",
-      description: "Learn to manipulate values on the console."},
+      description: "Learn to manipulate values on the console.",
+      tasks_attributes: {
+        "0": {name: "Task 1"},
+        "1": {name: "Task 2"}
+      }},
     "1": {name: "Variable Valley",
       description: "Review how to store and use data with variables."},
     "2": {name: "Files Falls",
       description: "Create JS files and source them within HTML code."}
   }
-  course = Course.create! name: "JavaScript Road Trip Part 1",
+  course2 = Course.create! name: "JavaScript Road Trip Part 2",
   description: "An introduction to the very basics of the JavaScript
     language. Build a foundation of JavaScript syntax and learn how to use values, variables, and files.",
   status: 1,
+  start_date: Time.now,
   subjects_attributes: {
     "0": {name: "The Cliffs of Value",
       description: "Learn to manipulate values on the console."},
@@ -60,10 +66,11 @@ course = Course.create! name: "JavaScript Road Trip Part 1",
     "2": {name: "Files Falls",
       description: "Create JS files and source them within HTML code."}
   }
-  course = Course.create! name: "JavaScript Road Trip Part 1",
+  course3= Course.create! name: "JavaScript Road Trip Part 3",
   description: "An introduction to the very basics of the JavaScript
     language. Build a foundation of JavaScript syntax and learn how to use values, variables, and files.",
   status: 2,
+  start_date: Time.now,
   subjects_attributes: {
     "0": {name: "The Cliffs of Value",
       description: "Learn to manipulate values on the console."},

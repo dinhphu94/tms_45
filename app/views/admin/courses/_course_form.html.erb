@@ -29,6 +29,7 @@
       <%= f.fields_for :subject_courses do |builder| %>
         <div class="form-group">
           <% if @course.subjects.include? builder.object.subject %>
+            <%= builder.hidden_field :id, value: builder.object.id %>
             <%= builder.check_box :_destroy, {checked: true}, 0, 1 %>
           <% else %>
             <%= builder.check_box :subject_id, {checked: false},

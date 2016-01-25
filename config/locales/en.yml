@@ -41,6 +41,12 @@ en:
   messages:
     confirm: "Are you sure?"
   client:
+    user_subject:
+      finish_task_success: "You finish task successfully"
+      finish_task_fail: "You can't finish task"
+    subjects:
+      finish: "Finish"
+      submit: "Finish tasks"
     courses:
       course_info: "COURSE INFORMATIONS"
       subject_info: "SUBJECT INFORMATIONS"
@@ -92,7 +98,7 @@ en:
         progress: "In progress"
         finish: "Finished"
         started: "started"
-        finished: "finished" 
+        finished: "finished"
       delete_success: "You have deleted successfully"
       delete_failure: "You can't delete this course"
       all_courses: "All Courses"

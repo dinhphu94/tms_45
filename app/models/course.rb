@@ -9,8 +9,8 @@ class Course < ActiveRecord::Base
   validates :status, presence: true
   validate :valid_deadline
 
-  accepts_nested_attributes_for :subject_courses, reject_if:
-    proc {|a| a[:subject_id].blank? || a[:subject_id] == 0}
+  accepts_nested_attributes_for :subject_courses, allow_destroy: true,
+    reject_if: proc {|a| a[:subject_id].blank? || a[:subject_id] == 0}
   accepts_nested_attributes_for :subjects, allow_destroy: true, reject_if:
     proc {|a| a[:name].blank? && a[:description].blank?}
   accepts_nested_attributes_for :user_courses, allow_destroy: true, reject_if:

@@ -55,7 +55,7 @@ class Admin::CoursesController < Admin::AdminController
   def course_params
     params.require(:course).permit :name, :description, :status, :start_date,
       :end_date, subject_courses_attributes: [:id, :subject_id, :course_id,
-      :_destroy], subjects_attributes: [:id, :name, :description,
+      :_destroy], subjects_attributes: [:id, :name, :description, :_destroy,
       tasks_attributes: [:id, :name]],
       user_courses_attributes: [:id, :course_id, :user_id, :status,
       :supervisor, :_destroy]

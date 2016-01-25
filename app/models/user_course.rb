@@ -3,8 +3,8 @@ class UserCourse < ActiveRecord::Base
   belongs_to :course
   has_many :user_subjects, dependent: :destroy
 
-  after_create :create_user_subjects
   before_create :set_unique_active
+  after_create :create_user_subjects
 
   scope :has_active_user, ->(user) {where "user_id = ? AND active = ?", user.id, true}
 
