@@ -15,6 +15,7 @@ en:
   setting: "Settings"
   account: "Account"
   user: "User"
+  manager_user: "Manager users"
   new_user: "New user?"
 
   confirm: "Confirmation"
@@ -66,6 +67,7 @@ en:
           created_at: "Created at"
           avatar: "Avatar"
     courses:
+      manager: "Manager course"
       add_trainees_supervisors: "Add trainees or supervisors"
       add_trainee: "Add trainee"
       add_supervisor: "Add supervisor"
@@ -98,10 +100,11 @@ en:
       all_courses: "All Courses"
       view_course: "View Course"
     subjects:
+      manager: "Manager subjects"
       name_task: "Name Task"
       remove_task: "Remove Task"
       new_task: "New Task"
-      new: "Create new Subject"
+      new: "Add new Subject"
       edit: "Edit Subject"
       subject: "Subject"
       list_of_subject: "List of Subject"
@@ -111,6 +114,8 @@ en:
           id: "ID"
           name: "Name"
           description: "Description"
+          edit: "Edit"
+          delete: "Delete"
     flash:
       create_course: "Created course successfully"
       edit_course: "Edit course successfully"
