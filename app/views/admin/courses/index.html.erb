@@ -6,13 +6,13 @@
   <div class="col-md-6 col-md-offset-3">
     <div id="search_form" class="row">
       <%= form_tag admin_courses_path, method: :get, enforce_utf8: true, remote: true do %>
-      <div class="input-group">
-        <%= text_field_tag :search, params[:search], class: "form-control",
-          placeholder: t(:search_course) %>
-        <span class="input-group-btn">
-          <%= submit_tag t(:search), name: nil, class: "btn btn-primary" %>
-        </span>
-      </div>
+        <div class="input-group">
+          <%= text_field_tag :search, params[:search], class: "form-control",
+            placeholder: t(:search_course) %>
+          <span class="input-group-btn">
+            <%= submit_tag t(:search), name: nil, class: "btn btn-primary" %>
+          </span>
+        </div>
       <% end %>
     </div>
   </div>

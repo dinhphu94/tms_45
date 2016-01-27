@@ -1,5 +1,6 @@
 class UserSubjectsController < ApplicationController
   before_action :load_user_subject, only: [:show, :update]
+  before_action :check_permission, only: [:show, :update]
 
   def show
     @subject = @user_subject.subject
@@ -12,9 +13,9 @@ class UserSubjectsController < ApplicationController
 
   def update
     if @user_subject.update_attributes user_subject_params
-      flash[:notice] = t "client.user_subject.finish_task_success"
+      flash[:success] = t "client.user_subject.finish_task_success"
     else
-      flash[:alert] = t "client.user_subject.finish_task_fail"
+      flash[:warning] = t "client.user_subject.finish_task_fail"
     end
     redirect_to @user_subject
   end
@@ -27,5 +28,12 @@ class UserSubjectsController < ApplicationController
   def user_subject_params
     params.require(:user_subject).permit user_tasks_attributes: [:id, :user_id,
       :task_id]
+  end
+
+  def check_permission
+    unless current_user.is_user? @user_subject.user
+      flash[:warning] = t "cannot_finish"
+      redirect_to :back
+    end
   end
 end

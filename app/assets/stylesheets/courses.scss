@@ -18,7 +18,8 @@ h2.label-name {
 .list-trainees, .list-managers {
   li {
     list-style: none;
-    border-bottom: 1px solid rgba(119, 119, 119, 0.52);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+    margin-right: 40px;
     padding-bottom: 10px;
     padding-top: 10px;
   }
@@ -50,4 +51,17 @@ h2.label-name {
   padding-top: 10px;
   padding-bottom: 10px;
   background-color: white;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.choose-subjects-field {
+  margin-top: 0px !important;
+  ul.choose-subjects {
+    height: 450px;
+    width: 300px;
+    border: 1px solid #ccc;
+    overflow: auto;
+    border-radius: 4px;
+    background-color: white;
+  }
 }

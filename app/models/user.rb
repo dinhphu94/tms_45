@@ -55,6 +55,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def is_user? user
+    self == user
+  end
+
+  def supervisor? course
+    user_courses.where("course_id = ? AND supervisor = ?", course.id, true).present?
+  end
+
   def remember
     self.remember_token = User.new_token
     update_attributes remember_digest: User.digest(remember_token)

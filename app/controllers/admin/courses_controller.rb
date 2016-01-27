@@ -1,5 +1,9 @@
 class Admin::CoursesController < Admin::AdminController
   before_action :load_course, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_admin, only: [:edit, :update, :show]
+  before_action only: [:edit, :update, :show] do
+    verify_admin_or_supervisor @course
+  end
 
   def index
     search_course = Course.search params[:search]

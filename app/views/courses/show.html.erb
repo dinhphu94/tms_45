@@ -24,7 +24,7 @@
       </h2>
       <ul class="white-in">
         <% @course.subjects.each do |subject| %>
-          <h3><%= link_to subject.name, user_subject(subject) %></h3>
+          <h3><%= link_to subject.name, subject.user_subjects.find_by(user_id: current_user.id) %></h3>
           <p><%= subject.description %></p>
         <% end %>
       </ul>
