@@ -214,3 +214,6 @@ en:
     view_course: "View Course"
     flash:
       not_user_of_course: "You cannot view detail of this course"
+  CREATE_COURSE: "created course"
+  UPDATE_COURSE: "updated course"
+  ago: "ago."

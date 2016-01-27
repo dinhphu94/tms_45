@@ -159,7 +159,7 @@ footer {
 }
 
 .user-icon {
-  margin-left:20px;
+  margin-left: 20px;
 }
 
 .task {
@@ -169,6 +169,11 @@ footer {
 
 .thumbnail-disable {
   background-color: rgba(128, 128, 128, 0.45);
+  }
+
+.activity-border {
+  font-family: "Pacifico", cursive;
+  border-bottom:1px solid #e2e8e9;
 }
 
 .alert {

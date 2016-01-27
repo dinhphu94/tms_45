@@ -1,9 +1,15 @@
 class Course < ActiveRecord::Base
+  attr_accessor :user_id
+
   enum status: [:open, :started, :finished]
+
   has_many :user_courses, dependent: :destroy, inverse_of: :course
   has_many :subject_courses, dependent: :destroy
   has_many :subjects, through: :subject_courses
   has_many :users, through: :user_courses
+
+  after_create :create_course_activity
+  after_update :update_course_activity
 
   validates :name, presence: true
   validates :description, presence: true, length: {minimum: 10}
@@ -49,5 +55,13 @@ class Course < ActiveRecord::Base
     if start_date > end_date
       errors.add :deadline, I18n.t("admin.error_messages.deadline")
     end
+  end
+
+  def create_course_activity
+    Activity.add_activity Activity::ACTION[:CREATE_COURSE], id, user_id, name
+  end
+
+  def update_course_activity
+    Activity.add_activity Activity::ACTION[:UPDATE_COURSE], id, user_id, name
   end
 end

@@ -1,0 +1,9 @@
+<% @activities.each do |activity| %>
+  <div class="activity-border">
+    <%= link_to activity.find_target_user, user_path(activity.user) %>
+    <%= t activity.target_name %>
+    <%= link_to activity.find_target_class, course_path(activity.target_id) %>
+    <%= time_ago_in_words activity.created_at %> <%= t :ago %>
+  </div>
+<% end %>
+<%= will_paginate @activities %>

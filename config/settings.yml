@@ -22,3 +22,5 @@ user_subject:
     default_status: 0
     status_start: 1
     finish_status: 2
+activity:
+  record_per_pages_of_course: 15

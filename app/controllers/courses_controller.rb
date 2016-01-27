@@ -12,6 +12,7 @@ class CoursesController < ApplicationController
   end
 
   def show
+    @activities = Activity.paginate page: params[:page], per_page: Settings.activity.record_per_pages_of_course
   end
 
   private

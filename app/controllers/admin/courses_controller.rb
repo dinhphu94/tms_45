@@ -17,6 +17,7 @@ class Admin::CoursesController < Admin::AdminController
 
   def create
     @course = Course.new course_params
+    @course.user_id = current_user.id
     if @course.save
       flash[:success] = t "admin.flash.create_course"
       redirect_to admin_course_path @course
@@ -32,9 +33,10 @@ class Admin::CoursesController < Admin::AdminController
 
   def update
     if params[:type]
-      @course.update_attributes status: params[:type].to_i
+      @course.update_attributes status: params[:type]
       redirect_to :back
     else
+      @course.user_id = current_user.id
       if @course.update_attributes course_params
         flash[:success] = t "admin.flash.edit_course"
         redirect_to admin_course_path @course
@@ -46,6 +48,8 @@ class Admin::CoursesController < Admin::AdminController
 
   def show
     @subject_courses = SubjectCourse.all
+    @users = @course.users
+    @activities = Activity.paginate page: params[:page], per_page: Settings.activity.record_per_pages_of_course
   end
 
   def destroy
