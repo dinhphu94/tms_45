@@ -2,7 +2,12 @@ class Admin::CoursesController < Admin::AdminController
   before_action :load_course, only: [:show, :edit, :update, :destroy]
 
   def index
-    @courses = Course.paginate page: params[:page]
+    search_course = Course.search params[:search]
+    @courses = search_course.paginate page: params[:page]
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def new

@@ -31,7 +31,7 @@
       <h2 class="label-name">
         <%= t "client.courses.subject_info" %>
       </h2>
-      <ul>
+      <ul class="white-in">
         <% @course.subjects.each do |subject| %>
           <% subject_course = @subject_courses.find_by subject_id: subject.id, course_id: @course.id %>
           <div class="course_list_border">
@@ -40,7 +40,7 @@
             <% if @course.started? %>
               <% case subject_course.status %>
               <% when "open" %>
-                <%= link_to t("admin.subjects.start_subject"), admin_subject_course_path(subject_course, 
+                <%= link_to t("admin.subjects.start_subject"), admin_subject_course_path(subject_course,
                   type: Settings.subject_course.status_start), data: {confirm: t("messages.confirm")},
                   method: :patch, class: "btn btn-sm btn-default" %>
               <% when "started" %>
@@ -64,7 +64,7 @@
         <%= t "client.courses.trainee_info" %>
         <span class="badge"><%= @course.trainees.count %></span>
       </h2>
-      <ul class="list-trainees">
+      <ul class="list-trainees white-in">
         <% @course.trainees.each do |trainee| %>
           <li class="user_info">
             <%= gravatar_for trainee %>
@@ -80,7 +80,7 @@
         <%= t "client.courses.manager" %>
         <span class="badge"><%= @course.supervisors.count %></span>
       </h2>
-      <ul class="list-managers">
+      <ul class="list-managers white-in">
         <% @course.supervisors.each do |supervisor| %>
           <li class="user_info">
             <%= gravatar_for supervisor %>

@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-2">
+    <div class="course_list_border">
+      <h3><%= link_to course.name, [:admin, course] %></h3>
+      <p><%= course.description.truncate(
+        Settings.course.number_of_description) %></p>
+      <span class="glyphicon glyphicon-user"> <%= course.trainees.count %>
+        <%= t :trainees %>
+      </span>
+      <% case course.status %>
+      <% when "open" %>
+        <%= link_to t("admin.courses.start_course"), admin_course_path(course,
+          type: Settings.course.status_start), data: {confirm: t("messages.confirm")},
+          method: :patch, class: "btn btn-sm btn-default" %>
+      <% when "started" %>
+        <%= link_to t("admin.courses.finish_course"), admin_course_path(course,
+          type: Settings.course.status_finish), data: {confirm: t("messages.confirm")},
+          method: :patch, class: "btn btn-sm btn-danger" %>
+      <% when "finished" %>
+        <%= link_to t("admin.courses.unactive_course"), root_url,
+          class: "btn btn-sm btn-danger disabled" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-offset-1">
+    <%= link_to t("courses.view_course"), admin_course_path(course), class: "btn btn-primary" %>
+  </div>
+</div>
