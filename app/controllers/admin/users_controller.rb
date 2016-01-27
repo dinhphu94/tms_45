@@ -12,6 +12,7 @@ class Admin::UsersController < Admin::CoursesController
   end
 
   def show
+    @user_courses = UserCourse.joined_by @user
   end
 
   def new

@@ -41,6 +41,12 @@ en:
 
   messages:
     confirm: "Are you sure?"
+  shared:
+    datetime_format: "%d/%m/%Y"
+  users:
+    show:
+      edit: "Edit profile"
+      profile: "PROFILE"
   client:
     user_subject:
       finish_task_success: "You finish task successfully"
@@ -48,6 +54,12 @@ en:
     subjects:
       finish: "Finish"
       submit: "Finish tasks"
+    users:
+      show:
+        admin: "Admin"
+        trainee: "Trainee"
+        collapse: "Collapse"
+      start_date: "Start date:"
     courses:
       course_info: "COURSE INFORMATIONS"
       subject_info: "SUBJECT INFORMATIONS"
@@ -61,6 +73,26 @@ en:
     error_messages:
       deadline: "must be possible"
     users:
+      show:
+        profile: "PROFILE"
+        active: "Active"
+        not_active: "Not active"
+        trainee: "Trainee"
+        supervisor: "Supervisor"
+        admin: "Admin"
+      activity: "ACTIVITY"
+      hide: "Hide"
+      course_form:
+        name: "Course name"
+        start_date: "Start date"
+        status: "Status"
+        role: "Role"
+      course_joined: "List of course this user joined"
+      not_join_course: "You haven't joined any courses"
+      course: "Course:"
+      name: "Name"
+      email: "Email"
+      role: "Role"
       excel: "Excel"
       download: "Download"
       list_of_user: "List of user"

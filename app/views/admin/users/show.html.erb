@@ -1,1 +1,58 @@
-<%= @user.name %>
+<div class="row">
+  <div class="col-md-9">
+    <div class="col-md-3">
+      <%= gravatar_for @user, size: Settings.avatar.size_in_show  %>
+    </div>
+    <div class="col-md-6">
+      <h4><%= t ".profile" %></h4>
+      <h5><%= t "admin.users.name" %>: <%= @user.name %></h5>
+      <h5><%= t "admin.users.email" %>: <%= @user.email %></h5>
+      <h5><%= t "admin.users.role" %>:
+        <span class="label label-<%= @user.admin? ? 'danger' : 'success' %>">
+          <%= @user.admin? ? t(".admin") : t(".trainee") %>
+        </span>
+      </h5>
+    </div>
+    <div class="col-md-3">
+      <%= link_to t("admin.courses.edit"), edit_admin_user_path(@user), class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-9">
+    <h3><%= t "admin.users.course_joined" %></h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th><%= t "admin.course_form.name" %></th>
+          <th><%= t "admin.course_form.start_date" %></th>
+          <th><%= t "admin.course_form.status" %></th>
+          <th><%= t "admin.course_form.role" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user_courses.each do |user_course| %>
+          <tr>
+            <td><%= user_course.course.name %></td>
+            <td><%= user_course.course.start_date %></td>
+            <td>
+              <span class="label label-<%= user_course.active ? 'success' : 'default' %>">
+                <%= user_course.active ? t(".active") : t(".not_active") %>
+              </span>
+            </td>
+            <td>
+              <span class="label label-<%= user_course.supervisor ? 'danger' : 'success' %>">
+                <%= user_course.supervisor ? t(".supervisor") : t(".trainee") %>
+              </span>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-3">
+    <div class="row">
+      <h2><%= t "admin.users.activity" %></h2>
+    </div>
+  </div>
+</div>

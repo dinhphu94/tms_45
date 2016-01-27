@@ -6,7 +6,11 @@ class UserCourse < ActiveRecord::Base
   before_create :set_unique_active
   after_create :create_user_subjects
 
-  scope :has_active_user, ->(user) {where "user_id = ? AND active = ?", user.id, true}
+  scope :active_course, ->(user) {where "user_id = ? AND active = ?",
+    user.id, true}
+  scope :joined_by, ->(user) {where user_id: user.id}
+  scope :joined_as_trainee, ->(user) {where "user_id = ? AND supervisor = ?",
+    user.id, false}
 
   class << self
     def build_users added_users, course

@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
 
   def show
+    @user_courses = UserCourse.joined_as_trainee @user
+    @user_subjects = UserSubject.all
   end
 
   def new

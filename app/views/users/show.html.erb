@@ -1,0 +1,81 @@
+<div class="row">
+  <div class="col-md-9">
+    <div class="col-md-3">
+      <%= gravatar_for @user, size: Settings.avatar.size_in_show  %>
+    </div>
+    <div class="col-md-6">
+      <h4><%= t ".profile" %></h4>
+      <h5><%= t "admin.users.name" %>: <%= @user.name %></h5>
+      <h5><%= t "admin.users.email" %>: <%= @user.email %></h5>
+      <h5><%= t "admin.users.role" %>:
+        <span class="label label-<%= @user.admin? ? 'danger' : 'success' %>">
+          <%= @user.admin? ? t(".admin") : t(".trainee") %>
+        </span>
+      </h5>
+    </div>
+    <div class="col-md-3">
+      <%= link_to t(".edit"), edit_admin_user_path(@user), class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
+<div class="row user-body">
+  <% if @user_courses.blank? %>
+    <p><%= t "admin.users.not_join_course" %></p>
+  <% else %>
+    <div class="col-md-9">
+      <% @user_courses.each do |user_course| %>
+        <% if user_course.active %>
+          <% course = user_course.course %>
+          <div>
+            <h5>
+              <%= t "admin.users.course" %> <%= course.name.upcase %>
+              <%= t "admin.courses.form.start_date" %>
+              <%= render "shared/view_start_date", object: course %>
+            </h5>
+          </div>
+          <table class="table subject-table">
+            <tbody>
+              <% @user_subjects.has_user_with_course(@user, user_course).each_with_index do
+                |user_subject, index| %>
+                <% tasks = user_subject.subject.tasks %>
+                <tr>
+                  <th><%= user_subject.subject.name %></th>
+                  <td>
+                    <%= t "client.users.start_date" %>
+                    <%= render "shared/view_start_date", object: user_subject %>
+                  </td>
+                  <th></th>
+                  <th><%= link_to t(".collapse"), ".collapseTask#{index}",
+                    {class: "btn btn-default", "data-toggle": "collapse", "aria-expanded": "false",
+                    "aria-controls": "collapseTask#{index}"} %></th>
+                </tr>
+                <% tasks.each do |task| %>
+                  <tr class="collapseTask<%= index %> collapse in">
+                    <td><%= task.name %></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        <% end %>
+      <% end %>
+      <table class="table">
+        <tbody>
+          <% @user_courses.each do |user_course| %>
+            <% unless user_course.active %>
+              <tr>
+                <td><%= user_course.course.name %></td>
+                <td><%= user_course.course.start_date %></td>
+                <td><%= user_course.active %></td>
+                <td><%= user_course.supervisor %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+</div>
