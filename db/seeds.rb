@@ -53,6 +53,8 @@ course = Course.create! name: "JavaScript Road Trip Part 1",
     "2": {name: "Files Falls",
       description: "Create JS files and source them within HTML code."}
   }
+  subject_courses1 = SubjectCourse.create! subject_id: 1,
+    course_id: 1, status: 0
   course2 = Course.create! name: "JavaScript Road Trip Part 2",
   description: "An introduction to the very basics of the JavaScript
     language. Build a foundation of JavaScript syntax and learn how to use values, variables, and files.",

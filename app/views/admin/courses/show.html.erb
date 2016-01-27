@@ -33,8 +33,29 @@
       </h2>
       <ul>
         <% @course.subjects.each do |subject| %>
-          <h3><%= link_to subject.name, [:admin, subject] %></h3>
-          <p><%= subject.description %></p>
+          <% subject_course = @subject_courses.find_by subject_id: subject.id, course_id: @course.id %>
+          <div class="course_list_border">
+            <h3><%= link_to subject.name, [:admin, subject] %></h3>
+            <p><%= subject.description %></p>
+            <% if @course.started? %>
+              <% case subject_course.status %>
+              <% when "open" %>
+                <%= link_to t("admin.subjects.start_subject"), admin_subject_course_path(subject_course, 
+                  type: Settings.subject_course.status_start), data: {confirm: t("messages.confirm")},
+                  method: :patch, class: "btn btn-sm btn-default" %>
+              <% when "started" %>
+                <%= link_to t("admin.subjects.finish_subject"), admin_subject_course_path(subject_course,
+                  type: Settings.subject_course.status_finish), data: {confirm: t("messages.confirm")},
+                  method: :patch, class: "btn btn-sm btn-danger" %>
+              <% when "finished" %>
+                <%= link_to t("admin.subjects.unactive_subject"), root_url,
+                  class: "btn btn-sm btn-danger disabled" %>
+              <% end %>
+            <% else %>
+              <%= link_to t("admin.subjects.unactive_subject"), root_url,
+                class: "btn btn-sm btn-danger disabled" %>
+            <% end %>
+          </div>
         <% end %>
       </ul>
     </div>

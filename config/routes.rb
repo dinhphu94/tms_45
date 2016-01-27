@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :user_subjects, only: [:show, :update]
   namespace :admin do
     root "static_pages#home"
+    resources :subject_courses, only: [:update]
     resources :courses do
       resources :user_courses, only: [:index, :show]
     end

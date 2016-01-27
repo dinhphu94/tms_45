@@ -14,6 +14,9 @@ course:
   number_of_description: 200
   status_start: 1
   status_finish: 2
+subject_course:
+  status_start: 1
+  status_finish: 2
 user_subject:
   status:
     default_status: 0
