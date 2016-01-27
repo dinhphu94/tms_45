@@ -27,7 +27,7 @@ class Admin::CoursesController < Admin::AdminController
 
   def update
     if params[:type]
-      @course.update_attributes status: params[:type]
+      @course.update_attributes status: params[:type].to_i
       redirect_to :back
     else
       if @course.update_attributes course_params
@@ -40,6 +40,7 @@ class Admin::CoursesController < Admin::AdminController
   end
 
   def show
+    @subject_courses = SubjectCourse.all
   end
 
   def destroy
@@ -54,7 +55,7 @@ class Admin::CoursesController < Admin::AdminController
   private
   def course_params
     params.require(:course).permit :name, :description, :status, :start_date,
-      :end_date, subject_courses_attributes: [:id, :subject_id, :course_id,
+      :end_date, subject_courses_attributes: [:id, :subject_id, :course_id, :status,
       :_destroy], subjects_attributes: [:id, :name, :description, :_destroy,
       tasks_attributes: [:id, :name]],
       user_courses_attributes: [:id, :course_id, :user_id, :status,

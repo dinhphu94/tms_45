@@ -105,6 +105,8 @@ en:
           created_at: "Created at"
           avatar: "Avatar"
     courses:
+      started_course: "started"
+      finished_course: "finished"
       manager: "Manager course"
       add_trainees_supervisors: "Add trainees or supervisors"
       add_trainee: "Add trainee"
@@ -138,6 +140,11 @@ en:
       all_courses: "All Courses"
       view_course: "View Course"
     subjects:
+      started_subject: "started"
+      finished_subject: "finished"
+      start_subject: "StartSubject"
+      finish_subject: "FinishSubject"
+      unactive_subject: "Unactive"
       manager: "Manager subjects"
       name_task: "Name Task"
       remove_task: "Remove Task"
