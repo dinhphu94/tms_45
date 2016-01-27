@@ -2,12 +2,14 @@ class Admin::UsersController < Admin::CoursesController
   before_action :load_user, except: [:index, :create, :new]
 
   def index
-    @users = User.paginate page: params[:page]
+    search_user = User.search params[:search]
+    @users = search_user.paginate page: params[:page]
     @all_users = User.all
     respond_to do |format|
       format.html
-      format.csv {send_data @users.to_csv}
+      format.csv {send_data @all_users.to_csv}
       format.xls
+      format.js
      end
   end
 

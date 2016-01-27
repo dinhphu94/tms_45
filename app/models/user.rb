@@ -48,6 +48,11 @@ class User < ActiveRecord::Base
         end
       end
     end
+
+    def search search
+      search.present? ? where("name LIKE :search or email LIKE :search",
+        search: "%#{search}%") : all
+    end
   end
 
   def remember

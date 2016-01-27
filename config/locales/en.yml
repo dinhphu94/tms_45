@@ -150,9 +150,9 @@ en:
         select_status: "Select status"
       add_user: "Add user!"
       status:
-        "open": "Opening"
-        "started": "Started"
-        "finished": "Finished"
+        open: "Opening"
+        started: "Started"
+        finished: "Finished"
       delete_success: "You have deleted successfully"
       delete_failure: "You can't delete this course"
       all_courses: "All Courses"
