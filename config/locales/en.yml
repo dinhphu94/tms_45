@@ -21,6 +21,7 @@ en:
   new_user: "New user?"
   download: "Download"
   waiting: "waiting"
+  search: "Search"
   nav_bar:
     courses: "COURSES"
   confirm: "Confirmation"
@@ -30,14 +31,18 @@ en:
   profile_updated: "Profile updated"
   need_login: "Please log in."
   search_user: "Search by name and email..."
+  search_course: "Search by name..."
   flash:
     type:
       notice: "notice"
       alert: "alert"
     success:
+      login: "Login successfully"
       create_user: "Create user successfully!"
       update_user: "Update user profile successfully!"
       destroy_user: "Delete user successfully"
+    warning:
+      cannot_finish: "You don't have right to finish this task"
 
   all_users: "All Users"
   create_user: "Create New User"
@@ -155,8 +160,8 @@ en:
     subjects:
       started_subject: "started"
       finished_subject: "finished"
-      start_subject: "StartSubject"
-      finish_subject: "FinishSubject"
+      start_subject: "Start subject"
+      finish_subject: "Finish subject"
       unactive_subject: "Unactive"
       manager: "Manager subjects"
       name_task: "Name Task"

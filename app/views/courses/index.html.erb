@@ -1,24 +1,22 @@
 <%= provide :title, t("courses.all_courses") %>
-<h1><%= t "courses.all_courses" %></h1>
-<% @courses.each do |course| %>
-  <% user_course course.id %>
-  <div class="row">
-    <div class="col-md-6 col-md-offset-2">
-      <div class="course_list_border">
-        <h3><%= link_to course.name, course %></h3>
-        <p><%= course.description.truncate(
-          Settings.course.number_of_description) %></p>
-        <span class="glyphicon glyphicon-user"> <%= course.trainees.count %>
-          <%= t :trainees %>
-          <%= render "shared/status_label", label: course.status %>
-          <label class="label label-<%= @user_course ? "success" : "default" %>">
-            <%= @user_course ? t("client.users.joined") : t("client.users.not_joined") %>
-          </label>
+<div class="page-header">
+  <h1><%= t "courses.all_courses" %></h1>
+</div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div id="search_form" class="row">
+      <%= form_tag courses_path, method: :get, enforce_utf8: true, remote: true do %>
+      <div class="input-group">
+        <%= text_field_tag :search, params[:search], class: "form-control",
+          placeholder: t(:search_course) %>
+        <span class="input-group-btn">
+          <%= submit_tag t(:search), name: nil, class: "btn btn-primary" %>
         </span>
       </div>
-    </div>
-    <div class="col-md-offset-1">
-      <%= link_to t("courses.view_course"), course, class: "btn btn-primary" %>
+      <% end %>
     </div>
   </div>
-<% end %>
+</div>
+<div id="list-courses">
+  <%= render @courses %>
+</div>

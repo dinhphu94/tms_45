@@ -37,6 +37,12 @@ class Course < ActiveRecord::Base
     subject_courses.where(id: subject_course_id).present?
   end
 
+  class << self
+    def search search
+      search.present? ? where("name LIKE ?", "%#{search}%") : all
+    end
+  end
+
   private
   def valid_deadline
     return if [end_date.blank?, start_date.blank?].any?
