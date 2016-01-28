@@ -59,7 +59,7 @@ course = Course.create! name: "JavaScript Road Trip Part 1", user_id: 1,
   course2 = Course.create! name: "JavaScript Road Trip Part 2", user_id: 2,
   description: "An introduction to the very basics of the JavaScript
     language. Build a foundation of JavaScript syntax and learn how to use values, variables, and files.",
-  status: 1,
+  status: 0,
   start_date: Time.now,
   subjects_attributes: {
     "0": {name: "The Cliffs of Value",
@@ -72,7 +72,7 @@ course = Course.create! name: "JavaScript Road Trip Part 1", user_id: 1,
   course3= Course.create! name: "JavaScript Road Trip Part 3", user_id: 1,
   description: "An introduction to the very basics of the JavaScript
     language. Build a foundation of JavaScript syntax and learn how to use values, variables, and files.",
-  status: 2,
+  status: 0,
   start_date: Time.now,
   subjects_attributes: {
     "0": {name: "The Cliffs of Value",
@@ -86,9 +86,9 @@ course = Course.create! name: "JavaScript Road Trip Part 1", user_id: 1,
   UserCourse.create! user_id: n + 5,
     course_id: course.id,
     supervisor: 0,
-    active: 1
+    status: 0
 end
 UserCourse.create! user_id: 2,
   course_id: course.id,
   supervisor: 1,
-  active: 1
+  status: 0
