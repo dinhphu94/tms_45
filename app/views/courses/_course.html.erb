@@ -1,3 +1,4 @@
+<% user_course course.id %>
 <div class="row">
   <div class="col-md-6 col-md-offset-2">
     <div class="course_list_border">
@@ -7,6 +8,9 @@
       <span class="glyphicon glyphicon-user"> <%= course.trainees.count %>
         <%= t :trainees %>
         <%= render "shared/status_label", label: course.status %>
+        <label class="label label-<%= @user_course ? "success" : "default" %>">
+          <%= @user_course ? t("client.users.joined") : t("client.users.not_joined") %>
+        </label>
       </span>
     </div>
   </div>

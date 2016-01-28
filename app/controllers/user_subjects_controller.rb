@@ -1,5 +1,6 @@
 class UserSubjectsController < ApplicationController
   before_action :load_user_subject, only: [:show, :update]
+
   def show
     @subject = @user_subject.subject
     @tasks = @subject.tasks
