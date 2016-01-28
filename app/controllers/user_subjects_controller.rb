@@ -8,6 +8,8 @@ class UserSubjectsController < ApplicationController
       @user_subject.user_tasks.find_or_initialize_by user_id: @user_subject.user.id,
         task_id: task.id
     end
+    @activities = Activity.get_activities current_user.id,
+      Settings.target_type.task, @subject.id
   end
 
   def update

@@ -15,6 +15,10 @@ en:
   setting: "Settings"
   account: "ACCOUNT"
   user: "User"
+  activity:
+    name: "Activity"
+    ago: "ago"
+    finished: "finished"
   manager_user: "USERS"
   manager_subject: "SUBJECTS"
   manager_course: "COURSES"
