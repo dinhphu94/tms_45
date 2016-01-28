@@ -13,7 +13,7 @@ class Admin::CoursesController < Admin::AdminController
   def create
     @course = Course.new course_params
     if @course.save
-      flash[:notice] = t "admin.flash.create_course"
+      flash[:success] = t "admin.flash.create_course"
       redirect_to admin_course_path @course
     else
       @course.build_subject_courses
@@ -31,7 +31,7 @@ class Admin::CoursesController < Admin::AdminController
       redirect_to :back
     else
       if @course.update_attributes course_params
-        flash[:notice] = t "admin.flash.edit_course"
+        flash[:success] = t "admin.flash.edit_course"
         redirect_to admin_course_path @course
       else
         render :edit
@@ -45,9 +45,9 @@ class Admin::CoursesController < Admin::AdminController
 
   def destroy
     if @course.destroy
-      flash[:notice] = t "admin.courses.delete_success"
+      flash[:success] = t "admin.courses.delete_success"
     else
-      flash[:alert] = t "admin.courses.delete_failure"
+      flash[:warning] = t "admin.courses.delete_failure"
     end
     redirect_to admin_courses_path
   end
