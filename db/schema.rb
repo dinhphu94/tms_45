@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20160129011225) do
     t.boolean  "supervisor", default: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.boolean  "active"
+    t.integer  "status",     default: 0
   end
 
   add_index "user_courses", ["course_id"], name: "index_user_courses_on_course_id"

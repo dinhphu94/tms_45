@@ -6,6 +6,7 @@ class UserTask < ActiveRecord::Base
 
   scope :has_task, ->(target_user, target_task) {
     where user_id: target_user.id, task_id: target_task.id}
+  scope :filter_by_user, ->user{where user_id: user.id}
 
   def create_task_activity
     content = task.name + " " + I18n.t("activity.finished")
