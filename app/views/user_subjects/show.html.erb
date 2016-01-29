@@ -7,6 +7,13 @@
     <div class="text-info">
       <p><%= @subject.description %></p><br>
     </div>
+    <h1><%= t :progress %></h1>
+    <div class="progress">
+    <div class="progress-bar progress-bar-complete progress-bar-striped"
+      style="width: <%= percent_subject_task @user_subject %>">
+      <%= percent_subject_task @user_subject %>
+    </div>
+  </div>
     <% if @subject.tasks.present? %>
       <%= form_for @user_subject, url: user_subject_path(@user_subject, method: :patch) do |f| %>
         <div class="row">
@@ -43,7 +50,7 @@
           <% @activities.each do |activity| %>
             <li>
               <%= activity.content %>
-              <span class="timestamp"> 
+              <span class="timestamp">
                 <%= time_ago_in_words activity.created_at %>
                 <%= t "activity.ago" %>
               </span>

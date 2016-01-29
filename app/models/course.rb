@@ -13,6 +13,8 @@ class Course < ActiveRecord::Base
   validates :status, presence: true
   validate :valid_deadline
 
+  after_update :update_user_courses
+
   accepts_nested_attributes_for :subject_courses, allow_destroy: true,
     reject_if: proc {|a| a[:subject_id].blank? || a[:subject_id] == 0}
   accepts_nested_attributes_for :subjects, allow_destroy: true, reject_if:
@@ -52,11 +54,19 @@ class Course < ActiveRecord::Base
     end
   end
 
+  def to_param
+    "#{id}-#{name.gsub(/\s/, '-')}"
+  end
+
   private
   def valid_deadline
     return if [end_date.blank?, start_date.blank?].any?
     if start_date > end_date
       errors.add :deadline, I18n.t("admin.error_messages.deadline")
     end
+  end
+
+  def update_user_courses
+    user_courses.each{|user_course| user_course.update status: status} if user_courses.present?
   end
 end

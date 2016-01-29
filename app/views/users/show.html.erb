@@ -24,7 +24,7 @@
   <% else %>
     <div class="col-md-9">
       <% @user_courses.each do |user_course| %>
-        <% if user_course.active %>
+        <% if user_course.started? %>
           <% course = user_course.course %>
           <div>
             <h5>
@@ -75,11 +75,11 @@
       <table class="table">
         <tbody>
           <% @user_courses.each do |user_course| %>
-            <% unless user_course.active %>
+            <% unless user_course.open? %>
               <tr>
                 <td><%= user_course.course.name %></td>
                 <td><%= user_course.course.start_date %></td>
-                <td><%= user_course.active %></td>
+                <td><%= user_course.status %></td>
                 <td><%= user_course.supervisor %></td>
               </tr>
             <% end %>
