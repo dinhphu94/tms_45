@@ -20,7 +20,7 @@
 </div>
 <div class="row user-body">
   <% if @user_courses.blank? %>
-    <p><%= t "admin.users.not_join_course" %></p>
+    <p class="notice-not-join"><%= t "admin.users.not_join_course" %></p>
   <% else %>
     <div class="col-md-9">
       <% @user_courses.each do |user_course| %>

@@ -1,5 +1,7 @@
 <% provide :title, t("admin.subjects.new") %>
-<h1><%= t "admin.subjects.new" %></h1>
+<div class="page-header">
+  <h1><%= t "admin.subjects.new" %></h1>
+</div>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= render "shared/error_messages", object: @subject %>

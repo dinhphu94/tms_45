@@ -172,7 +172,15 @@ footer {
 }
 
 .alert {
+  list-style: none;
+}
+
+.alert-success {
   border-left: 3px solid #00C040;
+}
+
+.alert-warning, .alert-danger {
+  border-left: 3px solid rgba(192, 35, 0, 0.79);
 }
 
 #search_form {

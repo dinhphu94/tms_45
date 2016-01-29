@@ -2,7 +2,13 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-2">
     <div class="course_list_border">
-      <h3><%= link_to course.name, course %></h3>
+      <h3>
+        <% if current_user.admin? || current_user.supervisor?(course) %>
+          <%= link_to course.name, [:admin, course] %>
+        <% else %>
+          <%= link_to course.name, course %>
+        <% end %>
+      </h3>
       <p><%= course.description.truncate(
         Settings.course.number_of_description) %></p>
       <span class="glyphicon glyphicon-user"> <%= course.trainees.count %>
