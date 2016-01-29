@@ -1,9 +1,12 @@
 class Course < ActiveRecord::Base
+  attr_accessor :user_id
   enum status: [:open, :started, :finished]
   has_many :user_courses, dependent: :destroy, inverse_of: :course
   has_many :subject_courses, dependent: :destroy
   has_many :subjects, through: :subject_courses
   has_many :users, through: :user_courses
+
+  after_update :update_course_activity
 
   validates :name, presence: true
   validates :description, presence: true, length: {minimum: 10}
@@ -35,6 +38,12 @@ class Course < ActiveRecord::Base
 
   def have_subject_course? subject_course_id
     subject_courses.where(id: subject_course_id).present?
+  end
+
+  def update_course_activity
+    content = name + " " + I18n.t("activity.updated")
+    Activity.update_activity user_id, self,
+      Settings.target_type.update_course, content
   end
 
   class << self

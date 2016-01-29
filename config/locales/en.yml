@@ -19,6 +19,8 @@ en:
     name: "Activity"
     ago: "ago"
     finished: "finished"
+    created: "created"
+    updated: "updated"
   manager_user: "USERS"
   manager_subject: "SUBJECTS"
   manager_course: "COURSES"

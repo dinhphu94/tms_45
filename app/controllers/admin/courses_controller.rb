@@ -50,6 +50,8 @@ class Admin::CoursesController < Admin::AdminController
 
   def show
     @subject_courses = SubjectCourse.all
+    @activities = Activity.get_activities @course.user_id,
+      Settings.target_type.update_course, @course.id
   end
 
   def destroy
