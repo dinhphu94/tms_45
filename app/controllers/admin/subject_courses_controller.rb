@@ -1,4 +1,4 @@
-class Admin::SubjectCoursesController < ApplicationController
+class Admin::SubjectCoursesController < Admin::AdminController
   before_action :load_subject_course
   skip_before_action :verify_admin
   before_action do

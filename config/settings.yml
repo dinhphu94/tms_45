@@ -24,3 +24,4 @@ user_subject:
     finish_status: 2
 target_type:
   task: 1
+  update_course: 1
