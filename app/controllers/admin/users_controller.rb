@@ -2,7 +2,7 @@ class Admin::UsersController < Admin::CoursesController
   before_action :load_user, except: [:index, :create, :new]
 
   def index
-    search_user = User.search params[:search]
+    search_user = User.search(params[:search]).order :id
     @users = search_user.paginate page: params[:page]
     @all_users = User.all
     respond_to do |format|

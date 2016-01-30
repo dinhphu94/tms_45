@@ -6,7 +6,7 @@ class Admin::CoursesController < Admin::AdminController
   end
 
   def index
-    search_course = Course.search params[:search]
+    search_course = Course.search(params[:search]).order :id
     @courses = search_course.paginate page: params[:page]
     respond_to do |format|
       format.html
