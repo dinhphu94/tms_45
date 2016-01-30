@@ -7,6 +7,7 @@
     <div class="text-info">
       <p><%= @subject.description %></p><br>
     </div>
+    <%= render "shared/status_label", label: @user_subject.status %>
     <h1><%= t :progress %></h1>
     <div class="progress">
     <div class="progress-bar progress-bar-complete progress-bar-striped"

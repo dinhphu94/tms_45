@@ -24,8 +24,21 @@
       </h2>
       <ul class="white-in">
         <% @course.subjects.each do |subject| %>
-          <h3><%= link_to subject.name, subject.user_subjects.find_by(user_id: current_user.id) %></h3>
+          <% user_subject = subject.user_subjects.where(
+              user_course_id: @user_course.id, user_id: current_user.id).first %>
+          <h3><%= link_to subject.name, @user_course ? user_subject : "#" %></h3>
           <p><%= subject.description %></p>
+          <% if @course.started? %>
+            <% case user_subject.status %>
+            <% when "started" %>
+              <%= link_to t("admin.subjects.finish_subject"), user_subject_path(user_subject,
+                type: Settings.subject_course.status_finish), data: {confirm: t("messages.confirm")},
+                method: :patch, class: "btn btn-sm btn-danger" %>
+            <% when "finished" %>
+              <%= link_to t("admin.subjects.unactive_subject"), root_url,
+                class: "btn btn-sm btn-danger disabled" %>
+            <% end %>
+          <% end %>
         <% end %>
       </ul>
     </div>
@@ -64,6 +77,19 @@
     <div class="row activity">
       <h2 class="label-name">
         <%= t "client.courses.activity" %>
+        <ul>
+          <% if @activities %>
+            <% @activities.each do |activity| %>
+              <li>
+                <%= activity.content %>
+                <span class="timestamp">
+                  <%= time_ago_in_words activity.created_at %>
+                  <%= t "activity.ago" %>
+               </span>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
       </h2>
     </div>
   </div>

@@ -5,7 +5,8 @@ class UserCourse < ActiveRecord::Base
   belongs_to :course
   has_many :user_subjects, dependent: :destroy
 
-  after_save :create_user_subjects
+  before_create :set_unique_active
+  after_create :create_user_subjects
   after_save :update_user_subjects_status
 
   scope :joined_by, ->(user) {where user_id: user.id}
@@ -23,11 +24,18 @@ class UserCourse < ActiveRecord::Base
   end
 
   private
+  def set_unique_active
+    UserCourse.where(user_id: user_id).each do |user_course|
+      user_course.status = Settings.user_subject.status.default_status if user_course.started?
+      user_course.save
+    end
+    status = Settings.user_subject.status.status_start
+  end
 
   def create_user_subjects
     if course.subjects.present?
       course.subjects.each do |subject|
-        user_subjects.create user: user, subject: subject, status: 1
+        user_subjects.create user: user, subject: subject, status: 0
       end
     end
   end
