@@ -14,6 +14,7 @@ class CoursesController < ApplicationController
   def show
     @activities = Activity.get_activities @course.user_id,
       Settings.target_type.update_course, @course.id
+    @subject_courses = SubjectCourse.all
   end
 
   private
