@@ -134,6 +134,8 @@ en:
           role: "Role"
           created_at: "Created at"
           avatar: "Avatar"
+      title: "Add new user"
+      all_users: "All user"
     courses:
       started_course: "started"
       finished_course: "finished"

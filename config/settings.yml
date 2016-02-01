@@ -22,6 +22,7 @@ user_subject:
     default_status: 0
     status_start: 1
     finish_status: 2
+    finished: "finished"
 target_type:
   task: 1
   update_course: 1

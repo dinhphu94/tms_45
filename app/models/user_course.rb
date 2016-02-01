@@ -35,7 +35,7 @@ class UserCourse < ActiveRecord::Base
   def create_user_subjects
     if course.subjects.present?
       course.subjects.each do |subject|
-        user_subjects.create user: user, subject: subject, status: 1
+        user_subjects.create user: user, subject: subject, status: 0
       end
     end
   end
