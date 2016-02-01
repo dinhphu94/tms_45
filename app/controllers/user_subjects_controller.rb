@@ -14,12 +14,17 @@ class UserSubjectsController < ApplicationController
   end
 
   def update
-    if @user_subject.update_attributes user_subject_params
-      flash[:success] = t "client.user_subject.finish_task_success"
+    if params[:type]
+      @user_subject.update_attributes status: params[:type].to_i
+      redirect_to :back
     else
-      flash[:warning] = t "client.user_subject.finish_task_fail"
+      if @user_subject.update_attributes user_subject_params
+        flash[:success] = t "client.user_subject.finish_task_success"
+      else
+        flash[:warning] = t "client.user_subject.finish_task_fail"
+      end
+      redirect_to @user_subject
     end
-    redirect_to @user_subject
   end
 
   private
@@ -28,7 +33,7 @@ class UserSubjectsController < ApplicationController
   end
 
   def user_subject_params
-    params.require(:user_subject).permit user_tasks_attributes: [:id, :user_id,
+    params.require(:user_subject).permit :status, user_tasks_attributes: [:id, :user_id,
       :task_id]
   end
 
