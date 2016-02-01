@@ -12,11 +12,10 @@
       <p><%= course.description.truncate(
         Settings.course.number_of_description) %></p>
       <span class="glyphicon glyphicon-user"> <%= course.trainees.count %>
-        <%= t :trainees %>
-        <%= render "shared/status_label", label: course.status %>
-        <label class="label label-<%= @user_course ? "success" : "default" %>">
-          <%= @user_course ? t("client.users.joined") : t("client.users.not_joined") %>
-        </label>
+        <%= t :trainees %></span>
+      <%= render "shared/status_label", label: @user_course ? @user_course.status : course.status %>
+      <span class="label label-<%= @user_course ? "success" : "default" %>">
+        <%= @user_course ? t("client.users.joined") : t("client.users.not_joined") %>
       </span>
     </div>
   </div>

@@ -12,10 +12,13 @@ class CoursesController < ApplicationController
   end
 
   def show
+    @activities = Activity.get_activities @course.user_id,
+      Settings.target_type.update_course, @course.id
   end
 
   private
   def load_course
     @course = Course.find params[:id]
+    @user_course = UserCourse.where(course_id: @course.id, user_id: current_user.id).first
   end
 end

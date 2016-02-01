@@ -33,7 +33,7 @@ class UserSubjectsController < ApplicationController
   end
 
   def check_permission
-    unless current_user.is_user? @user_subject.user
+    unless current_user.is_user?(@user_subject.user) && @user_subject.user_course.started?
       flash[:warning] = t "cannot_finish"
       redirect_to :back
     end

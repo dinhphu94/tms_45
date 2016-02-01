@@ -75,12 +75,12 @@
       <table class="table">
         <tbody>
           <% @user_courses.each do |user_course| %>
-            <% unless user_course.open? %>
+            <% unless user_course.started? %>
               <tr>
                 <td><%= user_course.course.name %></td>
                 <td><%= user_course.course.start_date %></td>
                 <td><%= user_course.status %></td>
-                <td><%= user_course.supervisor %></td>
+                <td><%= user_course.supervisor ? t(".supervisor") : t(".trainee") %></td>
               </tr>
             <% end %>
           <% end %>

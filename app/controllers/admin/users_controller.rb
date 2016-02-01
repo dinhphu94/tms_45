@@ -37,7 +37,7 @@ class Admin::UsersController < Admin::CoursesController
   def update
     if @user.update_attributes user_params
       flash[:success] = t "flash.success.update_user"
-      redirect_to root_url
+      redirect_to admin_users_path
     else
       render :edit
     end
